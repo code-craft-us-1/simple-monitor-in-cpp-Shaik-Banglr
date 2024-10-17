@@ -3,28 +3,23 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
-using namespace std;
-using std::flush;
-using std::this_thread::sleep_for;
-using std::chrono::seconds;
 
-void flushMessage()
-  {
+using std::cout, std::flush, std::this_thread::sleep_for, std::chrono::seconds;
+
+void flushMessage(){
   for (int i = 0; i < 6; i++) {
     cout << "\r* " << flush;
     sleep_for(seconds(1));
     cout << "\r *" << flush;
     sleep_for(seconds(1));
     }
-  }
+}
 
-bool isTemperatureCrtical(float temperature)
-  {
+bool isTemperatureCrtical(float temperature){
   return(temperature > 102 || temperature < 95);
   }
 
-bool isPulseOutofRange(float pulseRate)
-  {
+bool isPulseOutofRange(float pulseRate){
   return(pulseRate < 60 || pulseRate > 100);
   }
 
